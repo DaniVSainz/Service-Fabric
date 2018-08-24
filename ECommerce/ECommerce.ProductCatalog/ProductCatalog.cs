@@ -8,14 +8,14 @@ using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
-namespace Eccomerce.Product.Catalog
+namespace ECommerce.ProductCatalog
 {
     /// <summary>
     /// An instance of this class is created for each service replica by the Service Fabric runtime.
     /// </summary>
-    internal sealed class Catalog : StatefulService
+    internal sealed class ProductCatalog : StatefulService
     {
-        public Catalog(StatefulServiceContext context)
+        public ProductCatalog(StatefulServiceContext context)
             : base(context)
         { }
 
