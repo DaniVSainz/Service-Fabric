@@ -27,7 +27,7 @@ namespace ECommerce.ProductCatalog.Repository
             using (var tx = _stateManager.CreateTransaction())
             {
                 await products.AddOrUpdateAsync(tx, product.Id, product, (id, value) => product);
-                tx.CommitAsync();
+                await tx.CommitAsync();
             }
         }
 
@@ -48,7 +48,7 @@ namespace ECommerce.ProductCatalog.Repository
                     }
                 }
             }
-                throw new NotImplementedException();
+            return result;
         }
     }
 }

@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.2.176" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.ProductCatalog.Model\ECommerce.ProductCatalog.Model.csproj" />
+  </ItemGroup>
+
 </Project>
