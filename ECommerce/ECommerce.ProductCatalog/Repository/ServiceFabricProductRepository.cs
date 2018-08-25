@@ -5,6 +5,7 @@ using Microsoft.ServiceFabric.Data.Collections;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ECommerce.ProductCatalog.Repository
@@ -28,13 +29,26 @@ namespace ECommerce.ProductCatalog.Repository
                 await products.AddOrUpdateAsync(tx, product.Id, product, (id, value) => product);
                 tx.CommitAsync();
             }
-
-            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
-            throw new NotImplementedException();
+            var products = await _stateManager.GetOrAddAsync<IReliableDictionary<Guid, Product>>("products");
+            var result = new List<Product>();
+            using (var tx = _stateManager.CreateTransaction())
+            {
+                var allProducts = await products.CreateEnumerableAsync(tx, EnumerationMode.Unordered);
+
+                using(var enumerator = allProducts.GetAsyncEnumerator())
+                {
+                    while(await enumerator.MoveNextAsync(CancellationToken.None))
+                    {
+                        KeyValuePair<Guid, Product> current = enumerator.Current;
+                        result.Add(current.Value);
+                    }
+                }
+            }
+                throw new NotImplementedException();
         }
     }
 }
