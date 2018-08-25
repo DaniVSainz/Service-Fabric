@@ -1,4 +1,4 @@
-﻿using Ecommerce.ProductCatalog.Model;
+﻿using ECommerce.ProductCatalog.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +9,6 @@ namespace ECommerce.ProductCatalog.Interfaces
     interface IProductRepository
     {
         Task<IEnumerable<Product>> GetAllProducts();
-        Task AddProduct(ProductCatalog product);
+        Task AddProduct(Product product);
     }
 }
