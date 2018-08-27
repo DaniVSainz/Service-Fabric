@@ -2,43 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ECommerce.API.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.API.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ProductsController : Controller
     {
-        // GET api/values
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<ApiProduct>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new[] { new ApiProduct() { Id = Guid.NewGuid(), Description = "Fake" } };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task Post([FromBody] ApiProduct product)
         {
-        }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
