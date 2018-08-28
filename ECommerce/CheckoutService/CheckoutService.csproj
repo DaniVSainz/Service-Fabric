@@ -9,6 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.2.176" />
+    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.2.176" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CheckoutService.Model\CheckoutService.Model.csproj" />
+    <ProjectReference Include="..\UserActor.Interfaces\UserActor.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

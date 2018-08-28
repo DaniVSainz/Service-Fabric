@@ -11,5 +11,6 @@ namespace ECommerce.ProductCatalog.Model
     {
         Task<IEnumerable<Product>> GetAllProducts();
         Task AddProduct(Product Product);
+        Task<Product> GetProduct(Guid productId);
     }
 }

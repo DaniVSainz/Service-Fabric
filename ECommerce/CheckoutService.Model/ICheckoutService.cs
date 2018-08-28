@@ -7,7 +7,7 @@ namespace CheckoutService.Model
 {
     public interface ICheckoutService : IService
     {
-        Task<CheckoutSummary> Checkout(string userId);
+        Task<CheckoutSummary> CheckoutAsync(string userId);
         Task<IEnumerable<CheckoutSummary>> GetOrderHistory(string userId);
 
     }
