@@ -7,6 +7,7 @@ using ECommerce.ProductCatalog.Interfaces;
 using ECommerce.ProductCatalog.Model;
 using ECommerce.ProductCatalog.Repository;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 
@@ -42,11 +43,7 @@ namespace ECommerce.ProductCatalog
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            return new[]
-            {
-                new ServiceReplicaListener(context => this.CreateServiceRemotingListener(context))
-            };
-
+            return this.CreateServiceRemotingReplicaListeners();
         }
 
         /// <summary>
