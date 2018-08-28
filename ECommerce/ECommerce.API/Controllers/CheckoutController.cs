@@ -56,6 +56,7 @@ namespace ECommerce.API.Controllers
                    new ServicePartitionKey(key));
         }
 
+        //helpers to choose random partition
         private long LongRandom()
         {
             byte[] buf = new byte[8];
