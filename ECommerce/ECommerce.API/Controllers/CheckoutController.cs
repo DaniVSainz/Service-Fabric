@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using CheckoutService.Model;
 using ECommerce.API.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.ServiceFabric.Services.Client;
+using Microsoft.ServiceFabric.Services.Remoting.Client;
 
 namespace ECommerce.API.Controllers
 {
@@ -24,7 +26,7 @@ namespace ECommerce.API.Controllers
         [Route("history/{userId}")]
         public async Task<IEnumerable<ApiCheckoutSummary>> GetHistory(string userId)
         {
-            IEnumerable<CheckoutSummary> history = await GetCheckoutService().GetOrderHitory(userId);
+            IEnumerable<CheckoutSummary> history = await GetCheckoutService().GetOrderHistory(userId);
 
             return history.Select(ToApiCheckoutSummary);
         }

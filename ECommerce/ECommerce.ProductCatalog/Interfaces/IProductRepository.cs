@@ -10,5 +10,6 @@ namespace ECommerce.ProductCatalog.Interfaces
     {
         Task<IEnumerable<Product>> GetAllProducts();
         Task AddProduct(Product product);
+        Task<Product> GetProduct(Guid productId);
     }
 }
